@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "input",
+				"fileName": "output",
+				"folderPath": "output",
 				"fileSystem": "batch10"
 			},
 			"columnDelimiter": ",",
