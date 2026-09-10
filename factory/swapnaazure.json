@@ -1,0 +1,15 @@
+{
+	"name": "swapnaazure",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "47fa6f11-1e2f-40d0-a2a0-84240e3d0269",
+		"tenantId": "0f64cc5f-4514-4807-8daa-5fc216c42b92"
+	}
+}
