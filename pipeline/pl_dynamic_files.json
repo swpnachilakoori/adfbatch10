@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dynamicdata",
+				"name": "Copy dynamic",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -53,10 +53,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"foldername": "input",
-							"filename": {
-								"value": "@pipeline().parameters.filename",
-								"type": "Expression"
-							}
+							"filename": "online food delivery dataset.csv "
 						}
 					}
 				],
