@@ -6,12 +6,15 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"foldername": {
+			"batch10": {
 				"type": "string"
 			},
-			"filename": {
+			"onlinefooddeliver": {
 				"type": "string"
 			}
+		},
+		"folder": {
+			"name": "adlsdataset"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
@@ -19,17 +22,14 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().filename",
+					"value": "@dataset().onlinefooddeliver",
 					"type": "Expression"
 				},
 				"folderPath": {
-					"value": "@dataset().foldername",
+					"value": "@dataset().batch10",
 					"type": "Expression"
 				},
-				"fileSystem": {
-					"value": "@dataset().filename",
-					"type": "Expression"
-				}
+				"fileSystem": "batch10"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
