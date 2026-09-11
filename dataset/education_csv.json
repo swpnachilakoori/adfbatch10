@@ -5,11 +5,15 @@
 			"referenceName": "ls_adls_gen2",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "adls_data"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "education_csv",
 				"folderPath": "input"
 			},
 			"columnDelimiter": ",",
