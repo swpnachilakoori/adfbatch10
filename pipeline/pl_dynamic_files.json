@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "copydatapileline",
+				"name": "copydatadynamiccsvfile",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -13,7 +13,6 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "DelimitedTextSource",
@@ -50,33 +49,13 @@
 				"inputs": [
 					{
 						"referenceName": "DS_dyanamic_csv_action",
-						"type": "DatasetReference",
-						"parameters": {
-							"foldername": {
-								"value": "@pipeline().parameters.folder",
-								"type": "Expression"
-							},
-							"filename": {
-								"value": "@pipeline().parameters.filename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "DS_dyanamic_csv_action",
-						"type": "DatasetReference",
-						"parameters": {
-							"foldername": {
-								"value": "@pipeline().parameters.folder",
-								"type": "Expression"
-							},
-							"filename": {
-								"value": "@pipeline().parameters.filename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
