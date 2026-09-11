@@ -8,7 +8,9 @@
 		"folder": {
 			"name": "adls_data"
 		},
-		"annotations": [],
+		"annotations": [
+			"copydata1"
+		],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
