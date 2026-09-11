@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dataadls",
+				"name": "Copy csvfiles",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,13 +49,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "education_csv1",
+						"referenceName": "education_csv",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "education_csv1",
+						"referenceName": "education_csv",
 						"type": "DatasetReference"
 					}
 				]
