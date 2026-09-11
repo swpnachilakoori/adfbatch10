@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dynamicdata",
+				"name": "Copy dynamidatacsvflle",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,11 +37,25 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
+				"inputs": [
+					{
+						"referenceName": "dynamiccsvfiles",
+						"type": "DatasetReference"
+					}
+				],
 				"outputs": [
 					{
-						"referenceName": "outputcsv",
+						"referenceName": "dynamiccsvfiles",
 						"type": "DatasetReference"
 					}
 				]
