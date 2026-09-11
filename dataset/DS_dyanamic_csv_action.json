@@ -14,7 +14,7 @@
 			}
 		},
 		"folder": {
-			"name": "adlsdataset"
+			"name": "adls_data"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
@@ -22,7 +22,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": {
-					"value": "@dataset().onlinefooddeliver",
+					"value": "@dataset().batch10",
 					"type": "Expression"
 				},
 				"folderPath": {
