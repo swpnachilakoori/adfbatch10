@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"foldername": {
+			"input": {
 				"type": "string"
 			},
-			"filename": {
+			"online food delivery datset.csv": {
 				"type": "string"
 			}
 		},
