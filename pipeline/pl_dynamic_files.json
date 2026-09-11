@@ -52,7 +52,7 @@
 						"referenceName": "DS_dyanamic_csv_action",
 						"type": "DatasetReference",
 						"parameters": {
-							"foldername": "batch10"
+							"batch10": "batch10"
 						}
 					}
 				],
