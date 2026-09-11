@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dynamic",
+				"name": "copydatapileline",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -52,8 +52,14 @@
 						"referenceName": "DS_dyanamic_csv_action",
 						"type": "DatasetReference",
 						"parameters": {
-							"foldername": "input",
-							"filename": "online food delivery dataset.csv "
+							"foldername": {
+								"value": "@pipeline().parameters.folder",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.filename",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -62,8 +68,14 @@
 						"referenceName": "DS_dyanamic_csv_action",
 						"type": "DatasetReference",
 						"parameters": {
-							"foldername": "output",
-							"filename": "target"
+							"foldername": {
+								"value": "@pipeline().parameters.folder",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.filename",
+								"type": "Expression"
+							}
 						}
 					}
 				]
