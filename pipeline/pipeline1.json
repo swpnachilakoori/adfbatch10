@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dynamic_csv file",
+				"name": "Copy datacsv",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -29,7 +29,8 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "MergeFiles"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -49,22 +50,14 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_dyanamic_csv_action",
-						"type": "DatasetReference",
-						"parameters": {
-							"foldername": "input",
-							"filename": "onlinefooddelivery.csv"
-						}
+						"referenceName": "dynamiccsvfiles",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_dyanamic_csv_action",
-						"type": "DatasetReference",
-						"parameters": {
-							"foldername": "output",
-							"filename": "targetfood"
-						}
+						"referenceName": "dynamiccsvfiles",
+						"type": "DatasetReference"
 					}
 				]
 			}
