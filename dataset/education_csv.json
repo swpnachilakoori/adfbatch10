@@ -13,8 +13,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "education_csv",
-				"folderPath": "input"
+				"fileName": "online food delivery dataset.csv",
+				"fileSystem": "batch10"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
