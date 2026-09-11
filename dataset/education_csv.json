@@ -9,7 +9,7 @@
 			"input": {
 				"type": "string"
 			},
-			"education.csv": {
+			"output": {
 				"type": "string"
 			}
 		},
