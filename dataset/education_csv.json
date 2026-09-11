@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"foldername": {
+			"input": {
 				"type": "string"
 			},
-			"filename": {
+			"education.csv": {
 				"type": "string"
 			}
 		},
