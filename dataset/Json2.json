@@ -13,12 +13,14 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "adls_data"
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "input/india_railway_stations.parquet ",
 				"folderPath": "input",
 				"fileSystem": "batch10"
 			}
