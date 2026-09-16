@@ -5,12 +5,20 @@
 			"referenceName": "ls_adls_gen2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourcefile": {
+				"type": "string"
+			},
+			"targetfile": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "iris.json",
+				"fileName": "input/india_railway_stations.parquet ",
 				"folderPath": "input",
 				"fileSystem": "batch10"
 			}
