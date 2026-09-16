@@ -13,7 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "sourcefile",
+						"value": "input"
+					},
+					{
+						"name": "targetfile",
+						"value": "output"
+					}
+				],
 				"typeProperties": {
 					"source": {
 						"type": "ParquetSource",
