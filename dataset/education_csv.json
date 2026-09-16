@@ -13,9 +13,6 @@
 				"type": "string"
 			}
 		},
-		"folder": {
-			"name": "adls_data"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
