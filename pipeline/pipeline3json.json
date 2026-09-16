@@ -43,7 +43,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"foldername": "input",
-							"filename": "iris"
+							"filename": "iris.json"
 						}
 					}
 				],
