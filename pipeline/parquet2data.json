@@ -1,0 +1,14 @@
+{
+	"name": "parquet2data",
+	"properties": {
+		"parameters": {
+			"sourcefilename": {
+				"type": "string"
+			},
+			"targetfile": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
