@@ -2,6 +2,7 @@
 	"name": "swapnaonprimesql",
 	"properties": {
 		"type": "SelfHosted",
+		"description": "IR@602dd6df-3972-4303-a2c4-7f40cabc5432@swapnaazure@ServiceEndpoint=swapnaazure.eastus2.datafactory.azure.net@CarMacfDX2dWGxc8bLH4aVG+d1D0o5zvNnbICyuruC4=",
 		"typeProperties": {
 			"selfContainedInteractiveAuthoringEnabled": true
 		}
