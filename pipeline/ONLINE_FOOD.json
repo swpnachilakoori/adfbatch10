@@ -49,14 +49,28 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dynamiccsvfiles",
-						"type": "DatasetReference"
+						"referenceName": "swapna_data",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@pipeline().parameters.SourceFileName",
+								"type": "Expression"
+							},
+							"FolderName": "input"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "dynamiccsvfiles",
-						"type": "DatasetReference"
+						"referenceName": "swapna_data",
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": {
+								"value": "@concat(\n    pipeline().parameters.TargetFileName,formatDateTime(utcNow(), 'ddMMyyyy')\n    )",
+								"type": "Expression"
+							},
+							"FolderName": "output"
+						}
 					}
 				]
 			}
