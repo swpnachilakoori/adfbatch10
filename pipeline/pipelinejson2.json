@@ -58,13 +58,24 @@
 				"inputs": [
 					{
 						"referenceName": "Json2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "input",
+							"FileName": "iris.json"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Json2",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "output",
+							"FileName": {
+								"value": "@concat(\n    pipeline().parameters.targetfile, '_',\n    formatDateTime(utcNow(),'ddMMyyyy')\n    )",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
