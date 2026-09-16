@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "online food delivery dataset.csv",
 				"folderPath": "input",
 				"fileSystem": "batch10"
 			},
