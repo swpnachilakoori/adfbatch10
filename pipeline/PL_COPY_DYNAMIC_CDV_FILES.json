@@ -53,7 +53,10 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderName": "input",
-							"FileName": "QueryResult.csv"
+							"FileName": {
+								"value": "@pipeline().parameters.SourceFileName",
+								"type": "Expression"
+							}
 						}
 					}
 				],
@@ -63,12 +66,23 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderName": "output",
-							"FileName": "target_query"
+							"FileName": {
+								"value": "@concat(\n    pipeline().parameters.TargetFileName,'_',formatDateTime(utcNow(), 'ddMMyyyy')\n    )",
+								"type": "Expression"
+							}
 						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"SourceFileName": {
+				"type": "string"
+			},
+			"TargetFileName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
