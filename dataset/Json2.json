@@ -6,10 +6,10 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"sourcefile": {
+			"FolderName": {
 				"type": "string"
 			},
-			"targetfile": {
+			"FileName": {
 				"type": "string"
 			}
 		},
@@ -21,7 +21,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "input",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderName",
+					"type": "Expression"
+				},
 				"fileSystem": "batch10"
 			}
 		},
