@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "josnpipeline1",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy csvfiles",
+				"name": "CopyJsonFile",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,51 +16,60 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
+							"type": "JsonReadSettings"
 						}
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
+						"type": "JsonSink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings"
 						},
 						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"type": "JsonWriteSettings"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
-						"referenceName": "education_csv",
-						"type": "DatasetReference"
+						"referenceName": "Json1",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "input",
+							"FileName": "pokemonDB_dataset.json"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "education_csv",
-						"type": "DatasetReference"
+						"referenceName": "Json1",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "output",
+							"FileName": {
+								"value": "@concat(\n    pipeline().parameters.TargetFileName,'_',\n    formatDateTime(utcNow(), 'ddMMyyyy')\n    )",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"SourceFileName": {
+				"type": "string"
+			},
+			"TargetFileName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
