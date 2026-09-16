@@ -1,9 +1,9 @@
 {
-	"name": "pipeline2",
+	"name": "ONLINE_FOOD",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy dynamidatacsvflle",
+				"name": "CopyFoodData",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,7 +49,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dynamiccsvfiles",
+						"referenceName": "DS_DYNAMIC_CSV_ACTION",
 						"type": "DatasetReference"
 					}
 				],
@@ -61,6 +61,14 @@
 				]
 			}
 		],
+		"parameters": {
+			"SourceFileName": {
+				"type": "string"
+			},
+			"TargetFileName": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
