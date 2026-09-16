@@ -1,0 +1,75 @@
+{
+	"name": "pipeline3json",
+	"properties": {
+		"activities": [
+			{
+				"name": "json3file",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "Json3",
+						"type": "DatasetReference",
+						"parameters": {
+							"foldername": "input",
+							"filename": "iris"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json3",
+						"type": "DatasetReference",
+						"parameters": {
+							"foldername": "output",
+							"filename": {
+								"value": "@concat(pipeline().parameters.targetfilename, ' _',formatDateTime(utcNow(),\r\n'ddMMyyyy'))",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"sourcefilename": {
+				"type": "string"
+			},
+			"targetfilename": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
