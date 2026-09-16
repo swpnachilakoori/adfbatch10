@@ -49,7 +49,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_DYNAMIC_CSV_ACTION",
+						"referenceName": "dynamiccsvfiles",
 						"type": "DatasetReference"
 					}
 				],
