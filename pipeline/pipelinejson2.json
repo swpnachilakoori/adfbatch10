@@ -1,0 +1,14 @@
+{
+	"name": "pipelinejson2",
+	"properties": {
+		"parameters": {
+			"sourcefile": {
+				"type": "string"
+			},
+			"targetfile": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
