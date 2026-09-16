@@ -1,0 +1,49 @@
+{
+	"name": "Json3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"foldername": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls_data"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "input",
+				"fileSystem": "batch10"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"sepalLength": {
+					"type": "number"
+				},
+				"sepalWidth": {
+					"type": "number"
+				},
+				"petalLength": {
+					"type": "number"
+				},
+				"petalWidth": {
+					"type": "number"
+				},
+				"species": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
