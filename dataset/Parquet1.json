@@ -1,0 +1,21 @@
+{
+	"name": "Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "input/india_railway_stations.parquet ",
+				"folderPath": "input",
+				"fileSystem": "batch10"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
