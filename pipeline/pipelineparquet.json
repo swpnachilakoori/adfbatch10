@@ -57,17 +57,36 @@
 				"inputs": [
 					{
 						"referenceName": "Parquet1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"foldername": "input",
+							"filename": "india_railway_stations.parquet"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Parquet1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"foldername": "output",
+							"filename": {
+								"value": "@concat(pipeline().parameters.targetfile,'_',formatDateTime(utcNow(),'ddMMyyyy'))",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"sourcefilename": {
+				"type": "string"
+			},
+			"targetfile": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
