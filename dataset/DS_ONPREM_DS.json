@@ -1,0 +1,33 @@
+{
+	"name": "DS_ONPREM_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_SERVER_ONPREM",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SCHEMA": {
+				"type": "string"
+			},
+			"TABLE": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls_data"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().SCHEMA",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().TABLE",
+				"type": "Expression"
+			}
+		}
+	}
+}
