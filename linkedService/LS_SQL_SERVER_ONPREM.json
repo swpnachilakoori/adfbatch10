@@ -1,0 +1,21 @@
+{
+	"name": "LS_SQL_SERVER_ONPREM",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "GopiKrishna\\SQLEXPRESS02",
+			"database": "model",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "swapna_sql",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3ZjVjN2VlMC1mZDk4LTQ2YmMtODJiMS0yMDBmZmNhZTc5MGIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "IR-ONPREM-SWAPNA-SQL",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
