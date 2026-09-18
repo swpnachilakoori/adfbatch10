@@ -1,0 +1,35 @@
+{
+	"name": "SQL_DATA_ONPREM_ADLS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adls_gen2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TARGET_FILE_NAME": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "adls_data"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().TARGET_FILE_NAME",
+					"type": "Expression"
+				},
+				"folderPath": "ON_PREM_SQL",
+				"fileSystem": "batch10"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
