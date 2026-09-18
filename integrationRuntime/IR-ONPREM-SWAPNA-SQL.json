@@ -1,0 +1,6 @@
+{
+	"name": "IR-ONPREM-SWAPNA-SQL",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
