@@ -1,0 +1,24 @@
+{
+	"name": "DATAFLOWFILTER EMPLOYEE",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_DF_EMPLOEEDATA",
+						"type": "DatasetReference"
+					},
+					"name": "sourcedataflow"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcedataflow"
+			]
+		}
+	}
+}
