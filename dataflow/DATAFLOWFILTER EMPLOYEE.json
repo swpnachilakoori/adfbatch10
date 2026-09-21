@@ -23,10 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "filtergenderemployee"
-				},
-				{
-					"name": "filterdataemployee"
+					"name": "filterage"
 				}
 			],
 			"scriptLines": [
@@ -40,10 +37,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
-				"sourcedataflow filter(byName('Gender') == 'female',",
-				"     partitionBy('hash', 1)) ~> filtergenderemployee",
-				"filtergenderemployee filter(byName('Gender') == 'female') ~> filterdataemployee",
-				"sourcedataflow sink(allowSchemaDrift: true,",
+				"sourcedataflow filter(ERROR_FUNCTION('byName(age, experience_years) age >= 30__NEW_LINE_N__')) ~> filterage",
+				"filterage sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
