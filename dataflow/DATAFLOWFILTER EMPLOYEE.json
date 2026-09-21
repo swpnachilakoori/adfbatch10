@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "filtergenderemployee"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          ID as string,",
@@ -24,7 +28,8 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourcedataflow"
+				"     ignoreNoFilesFound: false) ~> sourcedataflow",
+				"sourcedataflow filter(byName('Gender') == 'female') ~> filtergenderemployee"
 			]
 		}
 	}
