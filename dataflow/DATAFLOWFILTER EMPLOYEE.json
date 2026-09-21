@@ -12,10 +12,21 @@
 					"name": "sourcedataflow"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sinkdataflowemployee"
+				}
+			],
 			"transformations": [
 				{
 					"name": "filtergenderemployee"
+				},
+				{
+					"name": "filterdataemployee"
 				}
 			],
 			"scriptLines": [
@@ -29,7 +40,23 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
-				"sourcedataflow filter(byName('Gender') == 'female') ~> filtergenderemployee"
+				"sourcedataflow filter(byName('Gender') == 'female',",
+				"     partitionBy('hash', 1)) ~> filtergenderemployee",
+				"filtergenderemployee filter(byName('Gender') == 'female') ~> filterdataemployee",
+				"sourcedataflow sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkdataflowemployee"
 			]
 		}
 	}
