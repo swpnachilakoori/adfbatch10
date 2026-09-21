@@ -23,7 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "filterage"
+					"name": "filtergender"
 				}
 			],
 			"scriptLines": [
@@ -37,8 +37,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
-				"sourcedataflow filter(ERROR_FUNCTION('byName(age, experience_years) age >= 30__NEW_LINE_N__')) ~> filterage",
-				"filterage sink(allowSchemaDrift: true,",
+				"sourcedataflow filter(ERROR_FUNCTION('by(Age)>==30')) ~> filtergender",
+				"filtergender sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
