@@ -23,7 +23,7 @@
 			],
 			"transformations": [
 				{
-					"name": "filtergender"
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -37,10 +37,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
-				"sourcedataflow filter(",
-				"lower(gender) == 'male'",
-				") ~> filtergender",
-				"filtergender sink(allowSchemaDrift: true,",
+				"sourcedataflow filter(lower(Gender) == 'female') ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
