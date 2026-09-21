@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_DF_EMPLOEEDATA",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
 					"name": "sourcedataflow"
@@ -15,7 +15,14 @@
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow"
 			]
