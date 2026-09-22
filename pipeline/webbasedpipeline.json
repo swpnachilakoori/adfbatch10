@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"method": "GET",
 					"url": {
-						"value": "      \"url\": \"https://www.androidpolice.com\",",
+						"value": "\"https://www.theverge.com/tech/998639/adobe-premiere-android-mobile-app\",",
 						"type": "Expression"
 					}
 				}
