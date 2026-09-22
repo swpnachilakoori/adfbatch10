@@ -23,10 +23,10 @@
 			],
 			"transformations": [
 				{
-					"name": "filter1gender"
+					"name": "filter1age"
 				},
 				{
-					"name": "ADDBONUSCOLUMN"
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -39,10 +39,12 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> sourcedataflow",
-				"sourcedataflow filter(lower(Gender) == 'female') ~> filter1gender",
-				"sourcedataflow derive(BONUS = toInteger(toDecimal(byName('salary')) *0.20)) ~> ADDBONUSCOLUMN",
-				"ADDBONUSCOLUMN sink(allowSchemaDrift: true,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> sourcedataflow",
+				"sourcedataflow filter(lower(Gender)=='female') ~> filter1age",
+				"filter1age derive(bonus = toInteger(toDecimal(byName ('salary'))  *0.2),",
+				"          column2 = ERROR_FUNCTION('')) ~> derivedColumn1",
+				"sourcedataflow sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
