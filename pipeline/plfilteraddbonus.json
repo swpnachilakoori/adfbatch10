@@ -1,5 +1,5 @@
 {
-	"name": "plfilterdfgender",
+	"name": "plfilteraddbonus",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,34 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "DATAFLOWFILTER EMPLOYEE",
+						"referenceName": "DATAFLOWFILTER EMPLOYEE ADDBONUS",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "None",
+					"cacheSinks": {
+						"firstRowOnly": true
+					}
+				}
+			},
+			{
+				"name": "Data flowadd bonus",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DATAFLOWFILTER EMPLOYEE ADDBONUS",
 						"type": "DataFlowReference"
 					},
 					"compute": {
