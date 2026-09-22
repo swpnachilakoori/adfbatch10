@@ -1,0 +1,108 @@
+{
+	"name": "JOINDATAFLOW",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sourcedataflow"
+				},
+				{
+					"dataset": {
+						"referenceName": "EMPDATASET",
+						"type": "DatasetReference"
+					},
+					"name": "DEPARTMENT"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sinkdataflowemployee"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SECONDHIGHESTSALARY"
+				},
+				{
+					"name": "filterHIGHESTSECOND"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "join1DFJOIN"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as integer,",
+				"          Experience_Years as integer,",
+				"          Age as integer,",
+				"          Gender as string,",
+				"          Salary as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> sourcedataflow",
+				"source(output(",
+				"          { Employee_ID} as integer,",
+				"          Employee_Name as string,",
+				"          Dept_ID as integer,",
+				"          Dept_Name as string,",
+				"          Role as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> DEPARTMENT",
+				"sourcedataflow window(over(ID),",
+				"     asc(toInteger('ID'), true),",
+				"     desc(toInteger(byName('Salary')), true),",
+				"     asc(Experience_Years, true),",
+				"     asc(Age, true),",
+				"     rn = rowNumber(),",
+				"     partitionBy('hash', 1)) ~> SECONDHIGHESTSALARY",
+				"SECONDHIGHESTSALARY filter(toInteger(byName(\"rn\")) ==1) ~> filterHIGHESTSECOND",
+				"join1DFJOIN select(mapColumn(",
+				"          ID = sourcedataflow@ID,",
+				"          Experience_Years = sourcedataflow@Experience_Years,",
+				"          Age = sourcedataflow@Age,",
+				"          Gender = sourcedataflow@Gender,",
+				"          Salary = sourcedataflow@Salary",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"filterHIGHESTSECOND, SECONDHIGHESTSALARY join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1DFJOIN",
+				"SECONDHIGHESTSALARY sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkdataflowemployee"
+			]
+		}
+	}
+}
