@@ -1,5 +1,5 @@
 {
-	"name": "DATAFLOWFILTER EMPLOYEE",
+	"name": "DATAFLOWFILTER EMPLOYEE ADDBONUS",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -24,6 +24,9 @@
 			"transformations": [
 				{
 					"name": "filter1gender"
+				},
+				{
+					"name": "ADDBONUSCOLUMN"
 				}
 			],
 			"scriptLines": [
@@ -38,7 +41,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
 				"sourcedataflow filter(lower(Gender) == 'female') ~> filter1gender",
-				"filter1gender sink(allowSchemaDrift: true,",
+				"filter1gender derive(BONUS = toInteger(toDecimal(byName('salary')) *0.20)) ~> ADDBONUSCOLUMN",
+				"ADDBONUSCOLUMN sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as string,",
@@ -51,7 +55,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkdataflowemployee"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkdataflowemployee"
 			]
 		}
 	}
