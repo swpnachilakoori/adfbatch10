@@ -1,0 +1,63 @@
+{
+	"name": "DATAFLOWemployee second highest dept",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sourcedataflow"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "sinkdataflowemployee"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SECONDHIGHESTSALARY"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> sourcedataflow",
+				"sourcedataflow window(over(RN = ID),",
+				"     asc(ID, true),",
+				"     asc(Experience_Years, true),",
+				"     asc(ERROR_FUNCTION(''), true),",
+				"     ID = ERROR_FUNCTION('')) ~> SECONDHIGHESTSALARY",
+				"SECONDHIGHESTSALARY sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkdataflowemployee"
+			]
+		}
+	}
+}
