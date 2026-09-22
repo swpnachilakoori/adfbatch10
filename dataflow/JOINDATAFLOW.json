@@ -22,10 +22,10 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "EMPDATASET",
 						"type": "DatasetReference"
 					},
-					"name": "sinkdataflowemployee"
+					"name": "sinkdataflowemployeejoin"
 				}
 			],
 			"transformations": [
@@ -36,7 +36,7 @@
 					"name": "filterHIGHESTSECOND"
 				},
 				{
-					"name": "select1"
+					"name": "select1join"
 				},
 				{
 					"name": "join1DFJOIN"
@@ -73,35 +73,21 @@
 				"     rn = rowNumber(),",
 				"     partitionBy('hash', 1)) ~> SECONDHIGHESTSALARY",
 				"SECONDHIGHESTSALARY filter(toInteger(byName(\"rn\")) ==1) ~> filterHIGHESTSECOND",
-				"join1DFJOIN select(mapColumn(",
-				"          ID,",
-				"          Experience_Years,",
-				"          Age,",
-				"          Gender,",
-				"          Salary",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
+				"DEPARTMENT select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1join",
 				"DEPARTMENT, sourcedataflow join(Employee_Name == Gender,",
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
 				"     broadcast: 'auto')~> join1DFJOIN",
-				"SECONDHIGHESTSALARY sink(allowSchemaDrift: true,",
+				"sourcedataflow sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          ID as string,",
-				"          Experience_Years as string,",
-				"          Age as string,",
-				"          Gender as string,",
-				"          Salary as string",
-				"     ),",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sinkdataflowemployee"
+				"     partitionBy('hash', 1)) ~> sinkdataflowemployeejoin"
 			]
 		}
 	}
