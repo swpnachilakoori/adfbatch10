@@ -1,0 +1,28 @@
+{
+	"name": "webbasedpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Webdata",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": {
+						"value": "      \"url\": \"https://www.androidpolice.com\",",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
