@@ -24,6 +24,12 @@
 			"transformations": [
 				{
 					"name": "SECONDHIGHESTSALARY"
+				},
+				{
+					"name": "filterHIGHESTSECOND"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -45,6 +51,16 @@
 				"     asc(Age, true),",
 				"     rn = rowNumber(),",
 				"     partitionBy('hash', 1)) ~> SECONDHIGHESTSALARY",
+				"SECONDHIGHESTSALARY filter(toInteger(byName(\"rn\")) ==1) ~> filterHIGHESTSECOND",
+				"filterHIGHESTSECOND select(mapColumn(",
+				"          ID,",
+				"          Experience_Years,",
+				"          Age,",
+				"          Gender,",
+				"          Salary",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
 				"SECONDHIGHESTSALARY sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -58,7 +74,8 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkdataflowemployee"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('hash', 1)) ~> sinkdataflowemployee"
 			]
 		}
 	}
