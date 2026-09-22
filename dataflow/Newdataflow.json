@@ -1,0 +1,37 @@
+{
+	"name": "Newdataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "newdataset",
+						"type": "DatasetReference"
+					},
+					"name": "sourcenewdata"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "filtergender"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          ID as string,",
+				"          Experience_Years as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Salary as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> sourcenewdata",
+				"sourcenewdata filter(lower('Gender') == 'male') ~> filtergender"
+			]
+		}
+	}
+}
