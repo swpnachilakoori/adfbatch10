@@ -41,7 +41,7 @@
 				"sourcedataflow window(over(RN = toInteger('ID')),",
 				"     asc(toInteger('ID'), true),",
 				"     rn = rowNumber(),",
-				"     partitionBy('hash', 1)) ~> SECONDHIGHESTSALARY",
+				"          Gender = ERROR_FUNCTION('')) ~> SECONDHIGHESTSALARY",
 				"SECONDHIGHESTSALARY sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
