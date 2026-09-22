@@ -41,7 +41,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcedataflow",
 				"sourcedataflow filter(lower(Gender) == 'female') ~> filter1gender",
-				"filter1gender derive(BONUS = toInteger(toDecimal(byName('salary')) *0.20)) ~> ADDBONUSCOLUMN",
+				"sourcedataflow derive(BONUS = toInteger(toDecimal(byName('salary')) *0.20)) ~> ADDBONUSCOLUMN",
 				"ADDBONUSCOLUMN sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -55,8 +55,7 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sinkdataflowemployee"
+				"     skipDuplicateMapOutputs: true) ~> sinkdataflowemployee"
 			]
 		}
 	}
