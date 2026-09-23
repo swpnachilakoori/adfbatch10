@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"method": "GET",
 					"url": {
-						"value": "\"https://gnews.io/api/v4/search?apikey=bd4f6ca2a8afb9727b66270a880211a8&q=what+are+the+upi+charges+in+India&lang=en&max=10&country=in&from=2026-09-01T00:00:00Z&to=2026-09-22T23:59:59Z&in=title,description,content\",",
+						"value": "https://abcnews.com/International/wireStory/british-columbia-leader-calls-snap-election-premier-tells-136664056",
 						"type": "Expression"
 					}
 				}
