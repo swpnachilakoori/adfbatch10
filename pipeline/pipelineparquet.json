@@ -81,10 +81,12 @@
 		],
 		"parameters": {
 			"sourcefilename": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "input"
 			},
 			"targetfile": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "target"
 			}
 		},
 		"annotations": []
