@@ -11,7 +11,9 @@
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"folderPath": "input",
+				"fileSystem": "batch10"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
