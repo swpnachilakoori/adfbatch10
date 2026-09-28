@@ -62,9 +62,6 @@
 			}
 		],
 		"parameters": {
-			"filetype": {
-				"type": "String"
-			},
 			"Filetype": {
 				"type": "String"
 			}
