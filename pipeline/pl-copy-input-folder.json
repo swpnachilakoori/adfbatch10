@@ -54,6 +54,82 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "ForEachFileType",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "FilterFileType",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('FilterFileType').output.value",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"batchCount": 20,
+					"activities": [
+						{
+							"name": "Copy dataeachfiletype",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"typeProperties": {
+								"source": {
+									"type": "BinarySource",
+									"storeSettings": {
+										"type": "AzureBlobFSReadSettings",
+										"recursive": true
+									},
+									"formatSettings": {
+										"type": "BinaryReadSettings"
+									}
+								},
+								"sink": {
+									"type": "BinarySink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									}
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "DS_Binary_multifile",
+									"type": "DatasetReference",
+									"parameters": {
+										"Foldername": "input"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DS_Binary_multifile",
+									"type": "DatasetReference",
+									"parameters": {
+										"Foldername": "multipul-output-folder",
+										"Filename": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
