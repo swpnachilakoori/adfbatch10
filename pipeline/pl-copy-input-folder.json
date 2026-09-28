@@ -69,7 +69,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadatacopy inputfolder').output.childItems",
+						"value": "@activity('FilterFileType').output.values",
 						"type": "Expression"
 					},
 					"isSequential": true,
