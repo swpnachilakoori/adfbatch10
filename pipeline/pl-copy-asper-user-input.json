@@ -13,14 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "foldername",
+						"value": "input"
+					}
+				],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_DYNAMIC_CSV_ACTION",
-						"type": "DatasetReference",
-						"parameters": {
-							"FolderName": "input"
-						}
+						"referenceName": "Json4",
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
@@ -30,7 +32,7 @@
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
-						"type": "DelimitedTextReadSettings"
+						"type": "JsonReadSettings"
 					}
 				}
 			}
