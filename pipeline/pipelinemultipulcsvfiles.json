@@ -74,10 +74,12 @@
 							},
 							"userProperties": [
 								{
-									"name": "foldername"
+									"name": "Source",
+									"value": "batch10/input/"
 								},
 								{
-									"name": "filename"
+									"name": "Destination",
+									"value": "batch10/input/"
 								}
 							],
 							"typeProperties": {
