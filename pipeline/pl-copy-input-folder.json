@@ -69,11 +69,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('FilterFileType').output.value",
+						"value": "@activity('Copy dataeachfiletype').output",
 						"type": "Expression"
 					},
-					"isSequential": false,
-					"batchCount": 20,
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy dataeachfiletype",
