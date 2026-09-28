@@ -72,7 +72,8 @@
 						"value": "@activity('FilterFileType').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
+					"batchCount": 9,
 					"activities": [
 						{
 							"name": "Copy dataeachfiletype",
@@ -109,12 +110,9 @@
 									"referenceName": "DS_Binary_multifile",
 									"type": "DatasetReference",
 									"parameters": {
-										"Foldername": {
-											"value": "@item().name",
-											"type": "Expression"
-										},
+										"Foldername": "input",
 										"Filename": {
-											"value": "@item().value",
+											"value": "@item().name",
 											"type": "Expression"
 										}
 									}
@@ -125,7 +123,10 @@
 									"referenceName": "DS_Binary_multifile",
 									"type": "DatasetReference",
 									"parameters": {
-										"Foldername": "multipul-output-folder",
+										"Foldername": {
+											"value": "@pipeline().parameters.filetype",
+											"type": "Expression"
+										},
 										"Filename": {
 											"value": "@item().name",
 											"type": "Expression"
