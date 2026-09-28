@@ -72,7 +72,8 @@
 						"value": "@activity('FilterFileType').output.values",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
+					"batchCount": 20,
 					"activities": [
 						{
 							"name": "Copy dataeachfiletype",
