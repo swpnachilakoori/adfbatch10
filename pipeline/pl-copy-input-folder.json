@@ -13,19 +13,18 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "filetype"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "foldercopyinput",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -34,6 +33,14 @@
 				}
 			}
 		],
+		"parameters": {
+			"filename": {
+				"type": "string"
+			},
+			"foldername": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
