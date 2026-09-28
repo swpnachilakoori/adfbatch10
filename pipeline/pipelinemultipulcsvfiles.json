@@ -68,11 +68,11 @@
 							"userProperties": [
 								{
 									"name": "foldername",
-									"value": "batch10/input/"
+									"value": "raw"
 								},
 								{
 									"name": "filename",
-									"value": "batch10/input/target"
+									"value": "Employee_Salary_Dataset.csv"
 								}
 							],
 							"typeProperties": {
