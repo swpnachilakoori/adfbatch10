@@ -19,7 +19,8 @@
 						"referenceName": "DS_DYNAMIC_CSV_ACTION",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderName": "input"
+							"FolderName": "input",
+							"FileName": "target"
 						}
 					},
 					"fieldList": [
@@ -27,6 +28,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
