@@ -15,8 +15,7 @@
 				},
 				"userProperties": [
 					{
-						"name": "foldername",
-						"value": "input"
+						"name": "filetype"
 					}
 				],
 				"typeProperties": {
@@ -35,8 +34,36 @@
 						"type": "JsonReadSettings"
 					}
 				}
+			},
+			{
+				"name": "FilterFileTypes",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Get Metadatafroinputfolder",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Metadatafroinputfolder').output.itemType",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@endsWith(item().name, pipeline().parameters.Filetype)",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"parameters": {
+			"filetype": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
