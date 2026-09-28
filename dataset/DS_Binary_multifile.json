@@ -25,7 +25,8 @@
 				"folderPath": {
 					"value": "@dataset().Foldername",
 					"type": "Expression"
-				}
+				},
+				"fileSystem": "batch10"
 			}
 		}
 	}
