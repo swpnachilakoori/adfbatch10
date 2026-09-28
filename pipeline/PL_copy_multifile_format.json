@@ -16,12 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_DYNAMIC_CSV_ACTION",
-						"type": "DatasetReference",
-						"parameters": {
-							"FolderName": "input",
-							"FileName": "target"
-						}
+						"referenceName": "ds_pl_dataset",
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
