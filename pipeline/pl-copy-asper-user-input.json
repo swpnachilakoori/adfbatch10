@@ -46,11 +46,7 @@
 						]
 					}
 				],
-				"userProperties": [
-					{
-						"name": "filetype"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"items": {
 						"value": "@activity('Get Metadatafroinputfolder').output.itemType",
