@@ -21,14 +21,7 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "dynamiccsvfiles",
-						"type": "DatasetReference",
-						"parameters": {
-							"foldername": "input",
-							"filename": {
-								"value": "@pipeline().parameters.filename",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"
@@ -74,12 +67,12 @@
 							},
 							"userProperties": [
 								{
-									"name": "Source",
+									"name": "foldername",
 									"value": "batch10/input/"
 								},
 								{
-									"name": "Destination",
-									"value": "batch10/input/"
+									"name": "filename",
+									"value": "batch10/input/target"
 								}
 							],
 							"typeProperties": {
