@@ -13,15 +13,17 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "filetype"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Json4",
-						"type": "DatasetReference"
+						"referenceName": "DS_DYNAMIC_CSV_ACTION",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": {
+								"value": "@pipeline().parameters.Filetype",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
@@ -31,7 +33,7 @@
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
-						"type": "JsonReadSettings"
+						"type": "DelimitedTextReadSettings"
 					}
 				}
 			},
@@ -49,11 +51,11 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Metadatafroinputfolder').output.itemType",
+						"value": "@activity('Get Metadatafroinputfolder').output.childItems",
 						"type": "Expression"
 					},
 					"condition": {
-						"value": "@endsWith(item().name, pipeline().parameters.Filetype)",
+						"value": "@endsWith(item().name, pipeline().parameters.filetype)",
 						"type": "Expression"
 					}
 				}
@@ -61,6 +63,14 @@
 		],
 		"parameters": {
 			"filetype": {
+				"type": "String"
+			},
+			"Filetype": {
+				"type": "String"
+			}
+		},
+		"variables": {
+			"file": {
 				"type": "String"
 			}
 		},
