@@ -140,12 +140,6 @@
 			}
 		],
 		"parameters": {
-			"filename": {
-				"type": "string"
-			},
-			"foldername": {
-				"type": "string"
-			},
 			"filetype": {
 				"type": "String"
 			}
