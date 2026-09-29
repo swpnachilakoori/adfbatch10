@@ -126,7 +126,7 @@
 										]
 									},
 									{
-										"value": "parquet",
+										"value": "copyparquet",
 										"activities": [
 											{
 												"name": "parquet",
