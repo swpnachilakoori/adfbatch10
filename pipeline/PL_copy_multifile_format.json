@@ -63,7 +63,7 @@
 								},
 								"cases": [
 									{
-										"value": "csv",
+										"value": "copycsv",
 										"activities": [
 											{
 												"name": "csv",
