@@ -189,7 +189,7 @@
 										]
 									},
 									{
-										"value": "json",
+										"value": "copyjson",
 										"activities": [
 											{
 												"name": "json",
