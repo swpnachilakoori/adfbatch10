@@ -179,6 +179,12 @@
 				}
 			}
 		],
+		"parameters": {
+			"foldername": {
+				"type": "string",
+				"defaultValue": "ready"
+			}
+		},
 		"variables": {
 			"message": {
 				"type": "Boolean"
