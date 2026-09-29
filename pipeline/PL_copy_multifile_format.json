@@ -66,7 +66,7 @@
 										"value": "copycsv",
 										"activities": [
 											{
-												"name": "csv",
+												"name": "copycsv",
 												"type": "Copy",
 												"dependsOn": [],
 												"policy": {
@@ -101,8 +101,8 @@
 														"referenceName": "DS_Binary_multifile",
 														"type": "DatasetReference",
 														"parameters": {
-															"Foldername": "input",
-															"Filename": {
+															"foldername": "input",
+															"filename": {
 																"value": "@item().name",
 																"type": "Expression"
 															}
@@ -114,8 +114,8 @@
 														"referenceName": "DS_Binary_multifile",
 														"type": "DatasetReference",
 														"parameters": {
-															"Foldername": "output",
-															"Filename": {
+															"foldername": "output\\csv",
+															"filename": {
 																"value": "@item().name",
 																"type": "Expression"
 															}
