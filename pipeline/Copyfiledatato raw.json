@@ -19,7 +19,8 @@
 						"referenceName": "DS_Binary_multifile",
 						"type": "DatasetReference",
 						"parameters": {
-							"foldername": "input"
+							"foldername": "input",
+							"filename": "\""
 						}
 					},
 					"fieldList": [
@@ -32,6 +33,26 @@
 					"formatSettings": {
 						"type": "BinaryReadSettings"
 					}
+				}
+			},
+			{
+				"name": "ForEachfile",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get Metadataraw",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Metadataraw').output",
+						"type": "Expression"
+					},
+					"isSequential": true
 				}
 			}
 		],
