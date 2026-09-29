@@ -63,7 +63,7 @@
 								},
 								"cases": [
 									{
-										"value": "csv",
+										"value": "copy.csv",
 										"activities": [
 											{
 												"name": "csv",
@@ -126,7 +126,7 @@
 										]
 									},
 									{
-										"value": "parquet",
+										"value": "copy.parquet",
 										"activities": [
 											{
 												"name": "parquet",
@@ -189,7 +189,7 @@
 										]
 									},
 									{
-										"value": "json",
+										"value": "copy.json",
 										"activities": [
 											{
 												"name": "json",
