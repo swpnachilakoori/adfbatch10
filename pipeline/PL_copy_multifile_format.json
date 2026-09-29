@@ -164,8 +164,8 @@
 														"referenceName": "DS_Binary_multifile",
 														"type": "DatasetReference",
 														"parameters": {
-															"Foldername": "input",
-															"Filename": {
+															"foldername": "input",
+															"filename": {
 																"value": "@item().name",
 																"type": "Expression"
 															}
@@ -177,8 +177,8 @@
 														"referenceName": "DS_Binary_multifile",
 														"type": "DatasetReference",
 														"parameters": {
-															"Foldername": "output/json",
-															"Filename": {
+															"foldername": "output\\parquet",
+															"filename": {
 																"value": "@item().name",
 																"type": "Expression"
 															}
