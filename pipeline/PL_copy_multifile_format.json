@@ -52,7 +52,7 @@
 					"batchCount": 20,
 					"activities": [
 						{
-							"name": "Switchbasedon for each file",
+							"name": "Switchbasedonfile",
 							"type": "Switch",
 							"dependsOn": [],
 							"userProperties": [],
@@ -63,7 +63,7 @@
 								},
 								"cases": [
 									{
-										"value": "copy.csv",
+										"value": "csv",
 										"activities": [
 											{
 												"name": "csv",
@@ -126,7 +126,7 @@
 										]
 									},
 									{
-										"value": "copy.parquet",
+										"value": "parquet",
 										"activities": [
 											{
 												"name": "parquet",
@@ -189,7 +189,7 @@
 										]
 									},
 									{
-										"value": "copy.json",
+										"value": "json",
 										"activities": [
 											{
 												"name": "json",
