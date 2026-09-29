@@ -102,6 +102,25 @@
 									"value": "@activity('Get Metadataraw').output.size>0",
 									"type": "Expression"
 								},
+								"ifFalseActivities": [
+									{
+										"name": "Set variable",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "message",
+											"value": {
+												"value": "\n@coalesce(item().YourPropertyName, '')\n\n",
+												"type": "Expression"
+											}
+										}
+									}
+								],
 								"ifTrueActivities": [
 									{
 										"name": "Copy dataraw",
@@ -160,6 +179,11 @@
 				}
 			}
 		],
+		"variables": {
+			"message": {
+				"type": "Boolean"
+			}
+		},
 		"annotations": []
 	}
 }
