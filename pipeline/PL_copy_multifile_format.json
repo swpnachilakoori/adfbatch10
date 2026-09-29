@@ -258,16 +258,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"foldername": {
-				"type": "string",
-				"defaultValue": "input"
-			},
-			"filename": {
-				"type": "string",
-				"defaultValue": "output"
-			}
-		},
 		"annotations": []
 	}
 }
