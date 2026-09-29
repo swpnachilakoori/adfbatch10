@@ -18,14 +18,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().Filename",
-					"type": "Expression"
-				},
-				"folderPath": {
-					"value": "@dataset().Foldername",
-					"type": "Expression"
-				},
+				"folderPath": "input",
 				"fileSystem": "batch10"
 			}
 		}
